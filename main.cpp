@@ -11,6 +11,7 @@
 // parameters
 int image_width;
 int image_height;
+int camera_idx;
 std::string image_filename;
 
 bool optparse(int argc, char *argv[])
@@ -20,6 +21,7 @@ bool optparse(int argc, char *argv[])
 	opt.add_options()
 		("help,h", "show help")
 		("resolution,r", po::value<std::string>()->default_value("640x480"), "resolution")
+		("camera,c", po::value<int>()->default_value(0), "capture device number")
 		("filename,f", po::value<std::string>()->default_value("image.jpg"), "capture image filename");
 
 	po::variables_map vm;
@@ -31,6 +33,7 @@ bool optparse(int argc, char *argv[])
 	}
 
 	image_filename  = vm["filename"].as<std::string>();
+	camera_idx      = vm["camera"].as<int>();
 
 	// parse resolution string
 	std::string resolution_str = vm["resolution"].as<std::string>();
