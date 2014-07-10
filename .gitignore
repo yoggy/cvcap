@@ -1,0 +1,9 @@
+CMakeCache.txt
+CMakeFiles/
+Makefile
+*.cmake
+cvcap
+*.swp
+*.jpeg
+*.jpg
+*.png
